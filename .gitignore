@@ -1,0 +1,10 @@
+#ignore file 
+
+.env
+.env.local
+.env.production
+.env.development
+
+#node module file
+
+/server/node_modules
