@@ -14,11 +14,11 @@ import MenuItem from '@mui/material/MenuItem';
 import OutletIcon from '@mui/icons-material/Outlet';
 
 const pages = ['로그인', 'ChatGPT', '게시판'];
-const settings = ['내 정보', '회원가입', '로그아웃'];
+const settings = ['내 정보', '회원가입', '로그인', '로그아웃'];
 
 //MUI에 있는 App Bar 탭 참고
 
-function ResponsiveAppBar() { //Responsive를 지우고 AppBar로 이라인과 맨아랫줄을 바꾸려했으나 그러면 오류생김!!
+function Appbar() { 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -97,7 +97,7 @@ function ResponsiveAppBar() { //Responsive를 지우고 AppBar로 이라인과 �
             </Menu>
           </Box>
           <OutletIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
+          <Typography // 왜 두번이나 쓰는지 모르겠음 [기본틀?]
             variant="h5"
             noWrap
             component="a"
@@ -161,4 +161,4 @@ function ResponsiveAppBar() { //Responsive를 지우고 AppBar로 이라인과 �
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
+export default Appbar;
