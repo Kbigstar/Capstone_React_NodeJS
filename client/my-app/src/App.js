@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Appbar from "./component/Appbar";
 import MainPage from "./component/MainPage";
+import Login from "./component/Login";
+import SignUp from "./component/SignUp";
 
 
 function App() { //kwon bo sung
@@ -8,8 +10,9 @@ function App() { //kwon bo sung
     <BrowserRouter>
       <Appbar />
       <Routes>
-        <Route path="/" element={<MainPage />} />    
-          
+        <Route path="/" element={<MainPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </BrowserRouter>
   );

@@ -24,17 +24,21 @@ function Appbar() {
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
+    console.log(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
+    console.log(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (event) => {
     setAnchorElNav(null);
+    console.log(event.currentTarget);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = (event) => {
     setAnchorElUser(null);
+    console.log(event.currentTarget);
   };
 
   return (
