@@ -1,11 +1,8 @@
 import * as React from 'react';
-import { Avatar, Box, Container, TextField, Typography } from "@mui/material";
+import { Avatar, Box, Button, Container, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+
 
 function SignUp(){ //회원가입 미완성
     const [email, setEmail] = useState("");
@@ -25,7 +22,7 @@ function SignUp(){ //회원가입 미완성
 
 
 return (
-    <Container component="main" maxWidth="sm">
+    <Container component="main" maxWidth="sm" sx={{ marginTop:8, textAlign: 'center', border: 2, borderRadius: 10, borderColor: '#372D2B'}}>
     
         <Box
             sx={{
@@ -77,28 +74,29 @@ return (
               autoComplete="current-password"
               onChange={onPwdCheckChange}
               value={pwdCheck}
-              error={pwdCheck === ""}
-              helperText={pwdCheck === "" ? '비밀번호를 확인해주세요 ' : ' '}/>
+              error={pwd !== pwdCheck}
+              helperText={pwd !== pwdCheck ? '비밀번호가 다릅니다. ' : ' '}/>
             
-            <TextField   sx={{
-                    width: 0.3, mt: 1,}}
+            <TextField   
               margin="normal"
               label="이름"       
-              //fullWidth
+              fullWidth
               name="name"
               id="name"
               />
             
-            {/* 생년월일 테스트 */}
-          <LocalizationProvider dateAdapter={AdapterDayjs}> 
-            <DemoContainer components={['DatePicker']}>
-                <DatePicker label="생년월일" 
-                 format="YYYY-MM-DD"
-                 
-                />
-            </DemoContainer>
-          </LocalizationProvider>
-        </Box>    
+            <Box>
+                <Button variant="outlined" sx={{ marginTop:2, marginBottom:3}} onClick={(event) => {event.preventDefault();                        
+                    if(pwd !== pwdCheck) {
+                        alert('비밀번호가 일치하지 않습니다!!')
+                        setPwd('');
+                        setPwdCheck('');}
+
+
+                }}> 가입하기 </Button>
+            </Box>
+          
+        </Box>     
     </Container>
         
     );
