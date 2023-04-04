@@ -85,16 +85,16 @@ return (
               id="name"
               />
             
-            <Box>
-                <Button variant="outlined" sx={{ marginTop:2, marginBottom:3}} onClick={(event) => {event.preventDefault();                        
+            
+            <Button variant="outlined" sx={{ marginTop:2, marginBottom:3}} onClick={(event) => {event.preventDefault();                        
                     if(pwd !== pwdCheck) {
                         alert('비밀번호가 일치하지 않습니다!!')
                         setPwd('');
                         setPwdCheck('');}
 
 
-                }}> 가입하기 </Button>
-            </Box>
+            }}> 가입하기 </Button>
+            
           
         </Box>     
     </Container>
