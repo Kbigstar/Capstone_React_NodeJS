@@ -12,12 +12,14 @@ import {
     Typography
  } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import SignUp from './SignUp';
 
 function Login(){ // 로그인 기본예제 틀
-
+    const [setsign,signswich]=React.useState(false);
     return  (
     
     <Container component="main" maxWidth="xs" >
+        {setsign && <SignUp/>}
         <Box
           sx={{
             marginTop: 15,
@@ -69,7 +71,7 @@ function Login(){ // 로그인 기본예제 틀
                 <Link>Forgot password?</Link>
             </Grid>
             <Grid item>
-                <Link>Sign Up</Link>
+                <Link onClick={()=>signswich(!setsign)}>Sign Up</Link>
             </Grid>
         </Grid>
         </Box>

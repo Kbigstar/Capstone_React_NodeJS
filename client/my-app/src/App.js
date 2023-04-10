@@ -1,9 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Appbar from "./component/Appbar";
+import Appbar from "./component/AppBar";
 import MainPage from "./component/MainPage";
 import Login from "./component/Login";
 import SignUp from "./component/SignUp";
-
 
 function App() { //kwon bo sung
   return (

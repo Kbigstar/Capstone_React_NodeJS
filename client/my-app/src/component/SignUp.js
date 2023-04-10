@@ -3,12 +3,17 @@ import { Avatar, Box, Button, Container, TextField, Typography } from "@mui/mate
 import { useState } from "react";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
 
 function SignUp(){ //회원가입 미완성
     const [email, setEmail] = useState("");
     const [pwd, setPwd] = useState("");
     const [pwdCheck, setPwdCheck] = useState("");
 
+  const [open, setOpen] = React.useState(true);
 
     const onEmailChange = (e) => {
         setEmail(e.target.value); //이메일아이디 이벤트값 설정
@@ -19,11 +24,25 @@ function SignUp(){ //회원가입 미완성
     const onPwdCheckChange = (e) => {
         setPwdCheck(e.target.value); //비밀번호 확인 이벤트값 설정
     }
+   
+      const handleClose = () => {
+        setOpen(false);
+      };
 
 
 return (
     <Container component="main" maxWidth="sm" sx={{ marginTop:8, textAlign: 'center', border: 2, borderRadius: 10, borderColor: '#372D2B'}}>
-    
+        <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Use Google's location service?"}
+        </DialogTitle>
+
+        <DialogContent>
         <Box
             sx={{
                 marginTop: 8,
@@ -96,7 +115,15 @@ return (
             }}> 가입하기 </Button>
             
           
-        </Box>     
+        </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Disagree</Button>
+          <Button onClick={handleClose} autoFocus>
+            Agree
+          </Button>
+        </DialogActions>  
+        </Dialog>   
     </Container>
         
     );
