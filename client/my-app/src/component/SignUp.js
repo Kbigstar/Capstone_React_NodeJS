@@ -117,6 +117,7 @@ return (
           
         </Box>
         </DialogContent>
+        
         <DialogActions>
           <Button onClick={handleClose}>Disagree</Button>
           <Button onClick={handleClose} autoFocus>
