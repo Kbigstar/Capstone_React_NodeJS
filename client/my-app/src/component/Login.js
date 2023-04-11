@@ -19,8 +19,8 @@ function Login(){ // 로그인 기본예제 틀
 
    return  (
     
-    <Container component="main" maxWidth="xs" >
-        {setsign && <SignUp/>}
+    <Container component="main" maxWidth="xs">
+        {<SignUp setOpen={setsign}/>}
         <Box
           sx={{
             marginTop: 15,
@@ -72,7 +72,7 @@ function Login(){ // 로그인 기본예제 틀
                 <Link>Forgot password?</Link>
             </Grid>
             <Grid item>
-                <Link onClick={()=>signswich(!setsign)}>Sign Up</Link>
+                <Link onClick={()=>signswich(true)}>Sign Up</Link>
             </Grid>
         </Grid>
         </Box>

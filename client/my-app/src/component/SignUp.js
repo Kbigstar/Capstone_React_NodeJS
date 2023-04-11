@@ -8,7 +8,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
-function SignUp(){ //회원가입 미완성
+function SignUp(props){ //회원가입 미완성
     const [email, setEmail] = useState("");
     const [pwd, setPwd] = useState("");
     const [pwdCheck, setPwdCheck] = useState("");
@@ -31,9 +31,9 @@ function SignUp(){ //회원가입 미완성
 
 
 return (
-    <Container component="main" maxWidth="sm" sx={{ marginTop:8, textAlign: 'center', border: 2, borderRadius: 10, borderColor: '#372D2B'}}>
+    <Container>
         <Dialog
-        open={open}
+        open={props.setOpen}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
