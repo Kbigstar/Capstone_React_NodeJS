@@ -5,35 +5,23 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const pages = ['HOME', 'ChatGPT', 'Board'];
+const pages = [
+  { display: 'HOME', url: '/' }, { display: 'ChatGPT', url: '/ChatGPT' }, { display: 'Board', url: '/Board' }];
 
 function Appbar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-    console.log(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-    console.log(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = (event) => {
-    setAnchorElNav(null);
-    console.log(event.currentTarget);
-  };
-
-  const handleCloseUserMenu = (event) => {
-    setAnchorElUser(null);
-    console.log(event.currentTarget);
+  const handleMenu = (e) => {
+    console.log(e.currentTarget.id);
+    console.log(location.pathname);
   };
 
   return (
-    <AppBar position="static" >
-      <Container maxWidth="lg" sx={{ mt: '20px' }}>
+    <AppBar position="static" color="inherit" sx={{ boxShadow: 0 }}>
+      <Container maxWidth="lg" sx={{ mt: '20px', mb: '20px' }}>
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -55,15 +43,15 @@ function Appbar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'flex-end' } }}>
             {pages.map((page) => (
               <Button
-              
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, display: 'block', color: 'black', fontWeight: 700, mr: '30px'}}
+                key={page.display}
+                id={page.display}
+                onClick={handleMenu}
+                sx={{ my: 2, display: 'block', color: location.pathname === page.url ? '#3f51b5' : 'black', fontWeight: 700, mr: '30px' }}
               >
-                {page}
+                {page.display}
               </Button>
             ))}
-            <Button sx={{ my: 2, display: 'block', border: 1, color: 'black', fontWeight: 700,}}>
+            <Button sx={{ my: 2, display: 'block', border: 2, borderColor: '#3f51b5', background: '#3f51b5', color: '#ffffff', p: '12px', fontWeight: 700, }}>
               GET STARTED
             </Button>
           </Box>
