@@ -22,17 +22,21 @@ function Appbar() {
       if (e.currentTarget.id === pages[i].display)
         navi(pages[i].url)
   };
-  
+
   return (
     <AppBar position="static" color="inherit" sx={{ boxShadow: 0 }}>
       <Container maxWidth="lg" sx={{ mt: '20px', mb: '20px' }}>
         <Toolbar disableGutters>
-          <LogoButton navi={navi} />
+          <LogoButton navi={navi}>
+            Capstone
+          </LogoButton>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'flex-end' } }}>
             {pages.map((page) => (
               <MenuButton page={page} handleMenu={handleMenu} location={location} />
             ))}
-            <LoginButton isActivation={true} />
+            <LoginButton isActivation={true} navi={navi}>
+              GET STARTED
+            </LoginButton>
           </Box>
         </Toolbar>
       </Container>
@@ -42,9 +46,9 @@ function Appbar() {
 export default Appbar;
 
 function LogoButton(props) {
-  const { navi } = props;
+  const { navi, children } = props;
   const style = {
-    mr: 2, 
+    mr: 2,
     display: { xs: 'none', md: 'flex' },
     fontFamily: 'monospace',
     fontWeight: 700,
@@ -54,18 +58,18 @@ function LogoButton(props) {
 
   return (
     <Typography variant="h6" noWrap component="a" onClick={() => navi('/')} sx={style} >
-      Capstone
+      {children}
     </Typography>
   );
 }
 
 function LoginButton(props) {
-  const { isActivation } = props;
+  const { isActivation, navi, children } = props;
   const style = { my: 2, display: 'block', border: 2, borderColor: '#3f51b5', background: '#3f51b5', color: '#ffffff', p: '12px', fontWeight: 700, }
 
   return (
-    isActivation ? <Button sx={style}>
-      GET STARTED
+    isActivation ? <Button onClick={() => navi('/login')} sx={style}>
+      {children}
     </Button> : <></>
   );
 }
