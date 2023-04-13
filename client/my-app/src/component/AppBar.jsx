@@ -11,7 +11,7 @@ const pages = [
   { display: 'HOME', url: '/' }, { display: 'ChatGPT', url: '/ChatGPT' }, { display: 'Board', url: '/Board' }];
 
 function Appbar() {
-  const navigate = useNavigate();
+  const navi = useNavigate();
   const location = useLocation();
 
   const handleMenu = (e) => {
@@ -27,7 +27,7 @@ function Appbar() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            onClick={()=> navi('/')}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
