@@ -5,6 +5,8 @@ import Login from "./component/Login";
 import SignUp from "./component/SignUp";
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import ChatGPT from "./component/ChatGPT";
+import Board from "./component/Board";
 
 const theme = createTheme({
   palette: {
@@ -21,6 +23,8 @@ function App() { //kwon bo sung
         <Appbar />
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/ChatGPT" element={<ChatGPT />} />
+          <Route path="/Board" element={<Board />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>

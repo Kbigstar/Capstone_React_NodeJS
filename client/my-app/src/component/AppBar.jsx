@@ -8,15 +8,19 @@ import Button from '@mui/material/Button';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const pages = [
-  { display: 'HOME', url: '/' }, { display: 'ChatGPT', url: '/ChatGPT' }, { display: 'Board', url: '/Board' }];
+  { display: 'HOME', url: '' },
+  { display: 'ChatGPT', url: 'ChatGPT' },
+  { display: 'Board', url: 'Board' }
+];
 
 function Appbar() {
   const navi = useNavigate();
   const location = useLocation();
 
   const handleMenu = (e) => {
-    console.log(e.currentTarget.id);
-    console.log(location.pathname);
+    for (var i in pages)
+      if (e.currentTarget.id === pages[i].display)
+        navi(pages[i].url)
   };
 
   return (
@@ -27,7 +31,7 @@ function Appbar() {
             variant="h6"
             noWrap
             component="a"
-            onClick={()=> navi('/')}
+            onClick={() => navi('/')}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -46,7 +50,7 @@ function Appbar() {
                 key={page.display}
                 id={page.display}
                 onClick={handleMenu}
-                sx={{ my: 2, display: 'block', color: location.pathname === page.url ? '#3f51b5' : 'black', fontWeight: 700, mr: '30px' }}
+                sx={{ my: 2, display: 'block', color: location.pathname === ('/'+page.url) ? '#3f51b5' : 'black', fontWeight: 700, mr: '30px' }}
               >
                 {page.display}
               </Button>
