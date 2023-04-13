@@ -22,42 +22,17 @@ function Appbar() {
       if (e.currentTarget.id === pages[i].display)
         navi(pages[i].url)
   };
-
+  
   return (
     <AppBar position="static" color="inherit" sx={{ boxShadow: 0 }}>
       <Container maxWidth="lg" sx={{ mt: '20px', mb: '20px' }}>
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            onClick={() => navi('/')}
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              //letterSpacing: '.3rem', 자간설정
-              color: 'black',
-              textDecoration: 'none',
-            }}
-          >
-            Capstone
-          </Typography>
+          <LogoButton navi={navi} />
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'flex-end' } }}>
             {pages.map((page) => (
-              <Button
-                key={page.display}
-                id={page.display}
-                onClick={handleMenu}
-                sx={{ my: 2, display: 'block', color: location.pathname === ('/'+page.url) ? '#3f51b5' : 'black', fontWeight: 700, mr: '30px' }}
-              >
-                {page.display}
-              </Button>
+              <MenuButton page={page} handleMenu={handleMenu} location={location} />
             ))}
-            <Button sx={{ my: 2, display: 'block', border: 2, borderColor: '#3f51b5', background: '#3f51b5', color: '#ffffff', p: '12px', fontWeight: 700, }}>
-              GET STARTED
-            </Button>
+            <LoginButton isActivation={true} />
           </Box>
         </Toolbar>
       </Container>
@@ -65,3 +40,43 @@ function Appbar() {
   );
 }
 export default Appbar;
+
+function LogoButton(props) {
+  const { navi } = props;
+  const style = {
+    mr: 2, 
+    display: { xs: 'none', md: 'flex' },
+    fontFamily: 'monospace',
+    fontWeight: 700,
+    color: 'black',
+    textDecoration: 'none',
+  };
+
+  return (
+    <Typography variant="h6" noWrap component="a" onClick={() => navi('/')} sx={style} >
+      Capstone
+    </Typography>
+  );
+}
+
+function LoginButton(props) {
+  const { isActivation } = props;
+  const style = { my: 2, display: 'block', border: 2, borderColor: '#3f51b5', background: '#3f51b5', color: '#ffffff', p: '12px', fontWeight: 700, }
+
+  return (
+    isActivation ? <Button sx={style}>
+      GET STARTED
+    </Button> : <></>
+  );
+}
+
+function MenuButton(props) {
+  const { page, handleMenu, location } = props;
+  const style = { my: 2, display: 'block', color: location.pathname === ('/' + page.url) ? '#3f51b5' : 'black', p: '12px', fontWeight: 700, mr: '30px' }
+
+  return (
+    <Button key={page.display} id={page.display} onClick={handleMenu} sx={style}>
+      {page.display}
+    </Button>
+  );
+}
