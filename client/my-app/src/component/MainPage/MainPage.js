@@ -139,7 +139,7 @@ const gridApi = useSpringRef()
     to: {
       scale: 1,
     },
-    delay: i * 50,
+    delay: i * 35,
     config: {
       mass: 2,
       tension: 220,

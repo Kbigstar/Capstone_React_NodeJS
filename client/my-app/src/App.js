@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Appbar from "./component/AppBar";
-import MainPage from "./component/MainPage";
+import Appbar from "./component/AppBar/AppBar";
+import MainPage from "./component/MainPage/MainPage";
 import Login from "./component/Login";
 import SignUp from "./component/SignUp";
 
@@ -16,7 +16,7 @@ const theme = createTheme({
   },
 });
 
-function App() { //kwon bo sung
+function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
