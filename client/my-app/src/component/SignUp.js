@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { Avatar, Box, Button, Container, TextField } from "@mui/material";
+import { Avatar, Box, Button, Container, TextField, Dialog, DialogTitle, DialogContent } from "@mui/material";
 import { useState } from "react";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-;
 
 function SignUp(props) { //회원가입 미완성
   const [email, setEmail] = useState("");
@@ -25,7 +24,7 @@ function SignUp(props) { //회원가입 미완성
     <Container>
       <Dialog
         open={props.setOpen}
-        onClose={handleClose}
+        // onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -94,8 +93,6 @@ function SignUp(props) { //회원가입 미완성
               name="name"
               id="name"
             />
-
-
             <Button variant="outlined" sx={{ marginTop: 2, marginBottom: 3 }} onClick={(event) => {
               event.preventDefault();
               if (pwd !== pwdCheck) {
@@ -103,16 +100,11 @@ function SignUp(props) { //회원가입 미완성
                 setPwd('');
                 setPwdCheck('');
               }
-
-
             }}> 가입하기 </Button>
-
-
           </Box>
         </DialogContent>
       </Dialog>
     </Container>
-
   );
 }
 
