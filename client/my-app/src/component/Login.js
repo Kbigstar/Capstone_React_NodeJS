@@ -12,15 +12,41 @@ import {
     Typography
  } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import SignUp from './SignUp';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+
+import SignUp from './SignUp'
+import {Forgotpwd} from './SignUp'
 
 function Login(){ // 로그인 기본예제 틀
-    const [setsign,signswich]=React.useState(false);
+
+    const [open, setOpen] = React.useState(false);
+    const [title, settitle] = React.useState("");
+    const handleClickOpen = (e) => {
+        
+        const currentname = e.target.name;
+
+        if(currentname === "register"){
+            settitle("회원가입")
+        } 
+        else if(currentname === "forgot"){
+            settitle("비밀번호 찾기")
+        }
+
+
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
 
    return  (
     
-    <Container component="main" maxWidth="xs">
-        {<SignUp setOpen={setsign}/>}
+    <Container component="main" maxWidth="xs" >
         <Box
           sx={{
             marginTop: 15,
@@ -69,14 +95,45 @@ function Login(){ // 로그인 기본예제 틀
 
         <Grid container>
             <Grid item xs>
-                <Link>Forgot password?</Link>
+                <Link name="forgot"onClick={handleClickOpen}>Forgot_password?</Link>
             </Grid>
             <Grid item>
-                <Link onClick={()=>signswich(true)}>Sign Up</Link>
+                <Link name="register"onClick={handleClickOpen}>Sign_Up</Link>
             </Grid>
         </Grid>
         </Box>
+
+        <div>
+        <Dialog
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+        >
+            <DialogTitle id="alert-dialog-title">
+            
+            </DialogTitle>
+            <DialogContent>
+                <SignUp/>
+                <Forgotpwd/>
+            </DialogContent>
+            <DialogActions>
+            <Button onClick={handleClose}>Disagree</Button>
+            <Button onClick={handleClose} autoFocus>
+                Agree
+            </Button>
+            </DialogActions>
+        </Dialog>
+        </div>
+
         </Container>
+        
+
+          
+
     );
 }
 export default Login;
+
+
+
