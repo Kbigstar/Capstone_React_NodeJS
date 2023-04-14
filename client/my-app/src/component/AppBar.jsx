@@ -15,7 +15,7 @@ const pages = [
 
 function Appbar() {
   const navi = useNavigate();
-  const location = useLocation();
+  const location = useLocation(); 
 
   const handleMenu = (e) => {
     for (var i in pages)
@@ -49,6 +49,7 @@ function LogoButton(props) {
   const { navi, children } = props;
   const style = {
     mr: 2,
+    p: '12px',
     display: { xs: 'none', md: 'flex' },
     fontFamily: 'monospace',
     fontWeight: 700,
