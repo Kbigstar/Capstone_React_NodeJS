@@ -31,8 +31,8 @@ function Appbar() {
             Capstone
           </LogoButton>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'flex-end' } }}>
-            {pages.map((page) => (
-              <MenuButton page={page} handleMenu={handleMenu} location={location} />
+            {pages.map((page,index) => (
+              <MenuButton key={index} page={page} handleMenu={handleMenu} location={location} />
             ))}
             <LoginButton isActivation={true} navi={navi}>
               GET STARTED

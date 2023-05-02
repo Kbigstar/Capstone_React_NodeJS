@@ -18,7 +18,6 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
 import SignUp from './SignUp'
-import {Forgotpwd} from './SignUp'
 
 function Login(){ // 로그인 기본예제 틀
 
@@ -32,7 +31,7 @@ function Login(){ // 로그인 기본예제 틀
             settitle("회원가입")
         } 
         else if(currentname === "forgot"){
-            settitle("비밀번호 찾기")
+            settitle("비밀번호찾기")
         }
 
 
@@ -114,8 +113,7 @@ function Login(){ // 로그인 기본예제 틀
             
             </DialogTitle>
             <DialogContent>
-                <SignUp/>
-                <Forgotpwd/>
+                <SignUp name={title}/> 
             </DialogContent>
             <DialogActions>
             <Button onClick={handleClose}>Disagree</Button>
