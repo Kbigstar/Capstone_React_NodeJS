@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 import Appbar from "./component/AppBar/AppBar";
 import MainPage from "./component/MainPage/MainPage";
 import Login from "./component/Login";
 import SignUp from "./component/SignUp";
-
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import ChatGPT from "./component/ChatGPT";
 import Board from "./component/Board";
 
