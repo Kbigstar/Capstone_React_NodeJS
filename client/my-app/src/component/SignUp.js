@@ -2,10 +2,11 @@ import * as React from 'react';
 import { Avatar, Box, Button, Container, TextField } from "@mui/material";
 // import { useState } from "react";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import Axios from 'axios';
 
 function SignUp(props) { //회원가입 미완성
   
-  
+  const URL = 'http://127.0.0.1:8000/signup'
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -15,6 +16,16 @@ function SignUp(props) { //회원가입 미완성
       password: data.get('password'),
       name: data.get('name')
     })
+    const email = data.get('email');
+    const password = data.get('password');
+    const name = data.get('name');
+    
+    Axios.post(URL,{email,password,name}).then((res) => {
+      console.log(res)
+    })
+   
+
+    
   }
 
   const title_s = props.name
