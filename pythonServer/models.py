@@ -1,24 +1,16 @@
-from sqlalchemy import Column, TEXT, INT, CHAR, BIGINT
-from sqlalchemy.ext.declarative import declarative_base
 
-Base = declarative_base()
+from sqlalchemy import Column, Table
+from sqlalchemy.sql.sqltypes import INTEGER, String
+from config.database import meta, engine,conn
+users = Table('MEMBER', meta,
+              Column('men_no', INTEGER(), primary_key=True),
+              Column('men_id', String(255)),
+              Column('mem_pwd', String(255)),
+              Column('men_phone', String(255)),
+              )
 
 
-class Test(Base):
-    __tablename__ = "MEMBER"
 
+meta.create_all(engine)
 
-    id = Column(BIGINT, nullable=False, autoincrement=True, primary_key=True)
-    name = Column(TEXT, nullable=False)
-    number = Column(INT, nullable=False)
-    # men_no = Column(INT, nullable=True, autoincrement=True, primary_key=True)
-    # men_id = Column(CHAR, nullable=True)
-    # men_pwd = Column(CHAR, nullable=True)
-    # men_name = Column(CHAR, nullable=False)
-    # men_phone =  Column(INT, nullable=False)
-
-    # print(men_no)
-    # print(men_id)
-    # print(men_pwd)
-    # print(men_name)
-    # print(men_phone)
+print(conn.execute(users.select()).fetchall())

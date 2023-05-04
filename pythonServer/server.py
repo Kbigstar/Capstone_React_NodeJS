@@ -1,13 +1,12 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+
 from starlette.middleware.cors import CORSMiddleware
-from database import engineconn
-from models import Test
+# from database import conn 
+from routes import user
+
 
 app = FastAPI()
 
-engine = engineconn()
-session = engine.sessionmaker()
 
 origins = [
     "*"
@@ -21,17 +20,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-class Item(BaseModel):
-    email: str
-    password: str
-    name: str
-
-class ResponseMessage(BaseModel):
-    message: str
+app.include_router(user)
 
 
-@app.post("/signup", response_model=ResponseMessage)
-def create_item(item: Item):
-    example = session.query(Test).all()
-    return {"message": "item received"}
+
+# @app.post("/signup")
+# def create_item():
+#     return {"message": 'example'}
 
