@@ -21,7 +21,7 @@ function SignUp(props) { //회원가입 미완성
     const name = data.get('name');
     
     Axios.post(URL,{email,password,name}).then((res) => {
-      console.log(res)
+      console.log(res.data)
     })
    
 
