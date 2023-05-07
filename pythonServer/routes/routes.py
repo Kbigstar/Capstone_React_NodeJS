@@ -1,4 +1,4 @@
-from models import users
+from models.models import users
 from config.database import conn
 from fastapi import APIRouter
 from schemas.user import User
