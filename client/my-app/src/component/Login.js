@@ -19,7 +19,11 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 import SignUp from './SignUp'
 
+import Axios from 'axios';
+
 function Login(){ // 로그인 기본예제 틀
+
+    const URL = 'http://127.0.0.1:8000/login'
 
     const [open, setOpen] = React.useState(false);
     const [title, settitle] = React.useState("");
@@ -41,6 +45,17 @@ function Login(){ // 로그인 기본예제 틀
     const handleClose = () => {
         setOpen(false);
     };
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const data = new FormData(e.currentTarget);
+        const email = data.get('email');
+        const password = data.get('password');
+        
+
+        Axios.post(URL,{email,password}).then((res) => {
+            console.log(res.data)
+        })
+    }
 
 
    return  (
@@ -53,6 +68,8 @@ function Login(){ // 로그인 기본예제 틀
             flexDirection: 'column',
             alignItems: 'center',
           }}
+        component="form" 
+        onSubmit={handleSubmit}
         >
         
         <Avatar sx={{ m:1, bgcolor:'secondary.main'}}>
