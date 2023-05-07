@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { CookiesProvider } from 'react-cookie';
+
 
 import Appbar from "./component/AppBar/AppBar";
 import MainPage from "./component/MainPage/MainPage";
@@ -18,18 +20,20 @@ const theme = createTheme({
 
 function App() {
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <Appbar />
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/ChatGPT" element={<ChatGPT />} />
-          <Route path="/Board" element={<Board />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-        </Routes>
-      </ThemeProvider>
-    </BrowserRouter>
+    <CookiesProvider>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <Appbar />
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/ChatGPT" element={<ChatGPT />} />
+            <Route path="/Board" element={<Board />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+          </Routes>
+        </ThemeProvider>
+      </BrowserRouter>
+    </CookiesProvider>
   );
 }
 

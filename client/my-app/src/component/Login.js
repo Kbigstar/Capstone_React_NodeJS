@@ -20,6 +20,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import SignUp from './SignUp'
 
 import Axios from 'axios';
+import { useCookies } from 'react-cookie'
+import { useNavigate } from 'react-router-dom'
 
 function Login(){ // 로그인 기본예제 틀
 
@@ -27,6 +29,8 @@ function Login(){ // 로그인 기본예제 틀
 
     const [open, setOpen] = React.useState(false);
     const [title, settitle] = React.useState("");
+    const [cookies, setCookie] = useCookies(['id'])
+    const navigate = useNavigate();
     const handleClickOpen = (e) => {
         
         const currentname = e.target.name;
@@ -53,7 +57,9 @@ function Login(){ // 로그인 기본예제 틀
         
 
         Axios.post(URL,{email,password}).then((res) => {
-            console.log(res.data)
+            console.log(res)
+            setCookie('id', res.data.token)
+            navigate('/')
         })
     }
 

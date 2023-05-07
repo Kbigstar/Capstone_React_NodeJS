@@ -6,7 +6,9 @@ from routes.routes import user
 
 
 
+
 app = FastAPI()
+
 
 
 origins = [

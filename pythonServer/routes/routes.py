@@ -3,6 +3,8 @@ from config.database import conn
 from fastapi import APIRouter
 from schemas.user import User
 from schemas.user import LoginUser
+from auth.auth import access_token
+from fastapi.responses import JSONResponse
 
 user = APIRouter()
 
@@ -24,7 +26,7 @@ def login_all(item : LoginUser):
         resuit = conn.execute(users.select().where(users.c.men_id == item.email).where(users.c.mem_pwd == item.password))
         for rows in resuit:
             print(rows)
-        return { 'message' : True , 'state' : rows }
+        return { 'message' : True , 'state' : rows , 'token': access_token}
     except:
         return { 'message' : False , 'state' : '로그인 실패' }
 
