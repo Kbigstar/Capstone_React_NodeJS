@@ -18,4 +18,3 @@ meta = MetaData()
 
 
 conn = engine.connect()
-print(DB_URL)

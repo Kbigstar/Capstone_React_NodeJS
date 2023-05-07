@@ -5,6 +5,7 @@ from starlette.middleware.cors import CORSMiddleware
 from routes.routes import user
 
 
+
 app = FastAPI()
 
 
@@ -19,6 +20,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
 
 app.include_router(user)
 
