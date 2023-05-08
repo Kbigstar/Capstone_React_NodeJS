@@ -59,7 +59,7 @@ function Login(){ // 로그인 기본예제 틀
         Axios.post(URL,{email,password}).then((res) => {
             console.log(res)
             setCookie('id', res.data.token)
-            navigate('/')
+            navigate('/amain')
         })
     }
 
