@@ -10,6 +10,8 @@ import SignUp from "./component/SignUp";
 import ChatGPT from "./component/ChatGPT";
 import Board from "./component/Board";
 import BoardWrite from "./component/Board/BoardWrite";
+import BoardDetail from "./component/Board/BoardDetail";
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -29,6 +31,7 @@ function App() {
             <Route path="/ChatGPT" element={<ChatGPT />} />
             <Route path="/Board" element={<Board />} />
             <Route path="/Boardw" element={<BoardWrite />} />
+            <Route path="/Boardd" element={<BoardDetail />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
           </Routes>

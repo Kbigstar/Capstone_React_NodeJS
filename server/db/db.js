@@ -1,27 +1,26 @@
- var mysql = require('mysql');
+const mysql = require('mysql');
 
- var connection = mysql.createConnection({
-   host     : '',
-   port     : '',
-   user     : '',
-   password : '',
-   database : ''
- });
+const connection = mysql.createConnection({
+  host     : '114.70.85.165',
+  port     : '3306',
+  user     : 'qhtjd',
+  password : '1234',
+  database : 'RIScapdb'
+  });
   
 
 
- connection.connect();
+  connection.connect();
 
 
  
- connection.query('SELECT * FROM POSTS', function (error, results, fields) {
-     if (error) {
-         console.log(error);
-     }
-     console.log(results);
- });
+  connection.query('SELECT * FROM POSTS', function (error, results, fields) {
+      if (error) {
+          console.log(error);
+      }
+      console.log(results);
+  });
 
- module.exports=connection;
+  module.exports=connection;
 
-
- connection.end();
+  

@@ -13,12 +13,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 PORT = 3001
-
+  
 app.use('/',router);
 
 app.get("/", (req, res) => {
-    res.send("루트 페이지");
-    response.json(request.body); 
+    
+    res.json(req.body); 
     console.log(req.body);
   
 }); 
