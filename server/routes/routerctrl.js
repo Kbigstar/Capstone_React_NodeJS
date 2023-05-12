@@ -24,10 +24,25 @@ router.get("/board", (req, res) =>{
     })
 });
 
-router.get("/boardDelete", (req, res) =>{
-    db.query('DELETE FROM POSTS WHERE post_num=? ', [req.params.num], function(){
-        res.redirect('/');
+router.get("/boardDetail", (req, res) =>{
+    var title = req.body;
+
+    db.query('SELECT * FROM POSTS WHERE post_title= ?', [title], function(err, rows, fields){
+        if(err){
+            console.log('데이터 가져오기 실패');
+        } else{
+            const article = rows;
+            res.json(article);
+        }
     })
-})
+});
+
+
+
+// router.get("/boardDelete", (req, res) =>{
+//     db.query('DELETE FROM POSTS WHERE post_num=? ', [req.params.num], function(){
+//         res.redirect('/');
+//     })
+// })
 
 module.exports = router;
