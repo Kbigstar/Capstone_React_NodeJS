@@ -1,11 +1,11 @@
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-  host     : '',
-  port     : '',
-  user     : '',
-  password : '',
-  database : ''
+  host     : '114.70.85.165',
+  port     : '3306',
+  user     : 'qhtjd',
+  password : '1234',
+  database : 'RIScapdb'
   });
   
 
@@ -18,7 +18,7 @@ const connection = mysql.createConnection({
       if (error) {
           console.log(error);
       }
-      console.log(results);
+    //   console.log(results);
   });
 
   module.exports=connection;

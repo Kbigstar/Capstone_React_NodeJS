@@ -24,15 +24,18 @@ router.get("/board", (req, res) =>{
     })
 });
 
-router.get("/boardDetail", (req, res) =>{
-    var title = req.body;
+router.post("/boardDetail", (req, res) =>{
+    let title = req.body.title;
+    console.log(title)
 
-    db.query('SELECT * FROM POSTS WHERE post_title= ?', [title], function(err, rows, fields){
+    db.query('SELECT * FROM POSTS WHERE post_title= ?', title, function(err, rows, fields){
         if(err){
             console.log('데이터 가져오기 실패');
         } else{
             const article = rows;
-            res.json(article);
+            console.log(rows)
+
+            return res.json(article);
         }
     })
 });

@@ -16,12 +16,12 @@ PORT = 3001
   
 app.use('/',router);
 
-app.get("/", (req, res) => {
+// app.get("/", (req, res) => {
     
-    res.json(req.body); 
-    console.log(req.body);
+//     res.json(req.body); 
+//     console.log(req.body);
   
-}); 
+// }); 
 
 
 
