@@ -21,16 +21,16 @@ function Board() {
   const onClick = (e) => {
     e.preventDefault()
     
-    setTitle(e.target)
+    setTitle(e.target.name)
     console.log(title)
-    axios.get("http://127.0.0.1:3001/boardDetail",{
+    axios.post("http://127.0.0.1:3001/boardDetail",{
       title : title
     
     })
     
   }
  const post = article.map(function(element, idx){
-    return <p key={idx}>{element.post_num} <a onClick={onClick}>{element.post_title}</a> {element.mem_no} {element.post_date}</p>
+    return <p key={idx}>{element.post_num} <a name={element.post_title}onClick={onClick}>{element.post_title}</a> {element.mem_no} {element.post_date}</p>
   
   })
   
