@@ -18,6 +18,7 @@ router.get("/board", (req, res) =>{
         if(err){
             console.log('데이터 가져오기 실패');
         } else{
+
             const article = rows;
             res.json(article);
         }
@@ -33,7 +34,7 @@ router.post("/boardDetail", (req, res) =>{
             console.log('데이터 가져오기 실패');
         } else{
             const article = rows;
-            console.log(rows)
+            console.log(article.post_date)
 
             return res.json(article);
         }
