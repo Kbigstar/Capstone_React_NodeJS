@@ -4,9 +4,9 @@ import axios from "axios";
 
 
 
-function BoardDetail(props){
-    const [article, setArticle] = useState([]);
-
+function BoardDetail(){ // dialog 하기
+    
+    
 
       
      

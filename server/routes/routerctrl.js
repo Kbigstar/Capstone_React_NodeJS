@@ -13,7 +13,7 @@ router.post("/boardWrite", async(req, res)=>{
       })
     });
 
-router.get("/board", (req, res) =>{
+router.post("/board", (req, res) =>{
     db.query('SELECT * FROM POSTS', function(err, rows, fields){
         if(err){
             console.log('데이터 가져오기 실패');
@@ -25,21 +25,21 @@ router.get("/board", (req, res) =>{
     })
 });
 
-router.post("/boardDetail", (req, res) =>{
-    let title = req.body.title;
-    console.log(title)
+// router.post("/boardDetail", (req, res) =>{ //필요가없다고함
+//     let title = req.body.data;
+//     console.log(title)
 
-    db.query('SELECT * FROM POSTS WHERE post_title= ?', title, function(err, rows, fields){
-        if(err){
-            console.log('데이터 가져오기 실패');
-        } else{
-            const article = rows;
-            console.log(article.post_date)
+//     db.query('SELECT * FROM POSTS WHERE post_title= ?', title, function(err, rows, fields){
+//         if(err){
+//             console.log('데이터 가져오기 실패');
+//         } else{
+//             const article = rows;
+//             const data_article = article.post_article
 
-            return res.json(article);
-        }
-    })
-});
+//             return res.json(data_article);
+//         }
+//     })
+// });
 
 
 

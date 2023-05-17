@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { Box, Container, TextField, Button } from "@mui/material";
+import { useNavigate } from 'react-router-dom';
+
 import axios from 'axios';
+
 
 function BoardWrite(){
 
@@ -8,6 +11,9 @@ function BoardWrite(){
         title: "",
         detail: "",
     });
+    
+    const navigate = useNavigate();
+
 
     const event_handler = (e) => { 
         const newArticle = {...article};
@@ -32,7 +38,8 @@ function BoardWrite(){
     
         if(e.target.id === "delete")
         {
-            alert("게시글 작성을 취소합니다")
+            alert("게시글 작성을 취소합니다") //mui alert로 바꾸기
+            navigate('/board')
         }
 
     }
