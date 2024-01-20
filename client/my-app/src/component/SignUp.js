@@ -5,7 +5,7 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Axios from 'axios';
 
 
-function SignUp(props) { //회원가입 미완성
+function SignUp(props) { // 회원가입 미완성..
   
   const URL = 'http://127.0.0.1:8000/signup'
 
@@ -26,7 +26,7 @@ function SignUp(props) { //회원가입 미완성
           alert('회원가입 성공');
         } 
         else if(res.data.message === false){
-          alert('회원가입 실패');
+          alert('회원가입 실패');   
         }
     })
    

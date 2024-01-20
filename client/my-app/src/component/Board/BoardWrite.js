@@ -74,4 +74,4 @@ function BoardWrite(){
 
        </Container>
     );
-} export default BoardWrite;
+} export default BoardWrite; 

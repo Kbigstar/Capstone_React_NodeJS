@@ -21,4 +21,4 @@ function BoardDetail(){ // dialog 하기
         </div>
       );
     
-}export default BoardDetail;
+}export default BoardDetail; 

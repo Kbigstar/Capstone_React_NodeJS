@@ -17,8 +17,7 @@ router.post("/board", (req, res) =>{
     db.query('SELECT * FROM POSTS', function(err, rows, fields){
         if(err){
             console.log('데이터 가져오기 실패');
-        } else{
-
+        } else{ 
             const article = rows;
             res.json(article);
         }
