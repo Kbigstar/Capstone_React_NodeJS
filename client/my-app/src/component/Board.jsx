@@ -22,7 +22,7 @@ function Board() {
     e.preventDefault()
     console.log(e.target.title)
 
-    
+      
   }
   useEffect(() => {
     axios.post('http://127.0.0.1:3001/board')
