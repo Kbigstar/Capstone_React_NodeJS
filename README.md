@@ -1,6 +1,6 @@
 # 캡스톤 프로젝트 베이스코드라인
 
-
+/client/my-app/node_modules </br>![제목 없는 디자인 (1)](https://github.com/Kbigstar/Capstone_React_NodeJS/assets/93638178/0bf614bb-9408-4bfb-9443-13cb3d3e44b2)
 
 ```
 ./server [파일경로에서] 
@@ -23,4 +23,4 @@
 #node module file </br>
 
 /server/node_modules </br>
-/client/my-app/node_modules </br>![제목 없는 디자인 (1)](https://github.com/Kbigstar/Capstone_React_NodeJS/assets/93638178/0bf614bb-9408-4bfb-9443-13cb3d3e44b2)
+
